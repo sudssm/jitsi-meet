@@ -4,6 +4,7 @@ import { getPinnedParticipant, getParticipantCount } from '../base/participants'
 import { isYoutubeVideoPlaying } from '../youtube-player/functions';
 
 import { LAYOUTS } from './constants';
+import { getDisplayName } from '../base/settings/functions.web';
 
 declare var interfaceConfig: Object;
 
@@ -54,7 +55,10 @@ export function getTileViewGridDimensions(state: Object, maxColumns: number = ge
     const numberOfParticipants = state['features/base/participants'].length - (iAmRecorder ? 1 : 0);
 
     const columnsToMaintainASquare = Math.ceil(Math.sqrt(numberOfParticipants));
-    const columns = Math.min(columnsToMaintainASquare, maxColumns);
+    let columns = Math.min(columnsToMaintainASquare, maxColumns);
+    if (getDisplayName(state).startsWith("**upbeat_thumb**")) {
+        columns = 5
+    }
     const rows = Math.ceil(numberOfParticipants / columns);
     const visibleRows = Math.min(maxColumns, rows);
 

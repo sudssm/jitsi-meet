@@ -4,6 +4,7 @@ import Filmstrip from '../../../modules/UI/videolayout/Filmstrip';
 import VideoLayout from '../../../modules/UI/videolayout/VideoLayout';
 import { StateListenerRegistry, equals } from '../base/redux';
 import { getCurrentLayout, getTileViewGridDimensions, shouldDisplayTileView, LAYOUTS } from '../video-layout';
+import { getDisplayName } from "../base/settings/functions.web";
 
 import { setHorizontalViewDimensions, setTileViewDimensions } from './actions.web';
 
@@ -11,7 +12,7 @@ import { setHorizontalViewDimensions, setTileViewDimensions } from './actions.we
  * Listens for changes in the number of participants to calculate the dimensions of the tile view grid and the tiles.
  */
 StateListenerRegistry.register(
-    /* selector */ state => state['features/base/participants'].length,
+    /* selector */ state => [state['features/base/participants'].length, getDisplayName(state).startsWith("**upbeat_thumb**")],
     /* listener */ (numberOfParticipants, store) => {
         const state = store.getState();
 

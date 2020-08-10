@@ -43,7 +43,7 @@ function createContainer(spanId) {
         <div class = 'videocontainer__background'></div>
         <div class = 'videocontainer__toptoolbar'></div>
         <div class = 'videocontainer__toolbar'></div>
-        <div class = 'videocontainer__hoverOverlay'></div>
+        <div class = 'videocontainer__hoverOverlay' style='background:rgba(0,0,0,.75)'></div>
         <div class = 'displayNameContainer'></div>
         <div class = 'avatar-container'></div>
         <div class ='presence-label-container'></div>
@@ -155,6 +155,7 @@ export default class RemoteVideo extends SmallVideo {
      * @private
      */
     _generatePopupContent() {
+        return;
         if (interfaceConfig.filmStripOnly) {
             return;
         }

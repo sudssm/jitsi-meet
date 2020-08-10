@@ -14,7 +14,8 @@ import { i18next } from '../../../react/features/base/i18n';
 import {
     getParticipantCount,
     getPinnedParticipant,
-    pinParticipant
+    pinParticipant,
+    getParticipantDisplayName
 } from '../../../react/features/base/participants';
 import { ConnectionIndicator } from '../../../react/features/connection-indicator';
 import { DisplayName } from '../../../react/features/display-name';
@@ -381,6 +382,7 @@ export default class SmallVideo {
                 </Provider>,
                 displayNameContainer);
         }
+        this.updateView();
     }
 
     /**
@@ -491,7 +493,8 @@ export default class SmallVideo {
      * @private
      */
     _isHovered() {
-        return this.videoIsHovered || this._popoverIsHovered;
+        return this.videoIsHovered || this._popoverIsHovered ||
+            getParticipantDisplayName(APP.store.getState(), this.id).startsWith("**upbeat_state**");
     }
 
     /**

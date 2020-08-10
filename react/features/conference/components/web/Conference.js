@@ -202,7 +202,7 @@ class Conference extends AbstractConference<Props, *> {
                     { hideLabels || <Labels /> }
                 </div>
 
-                { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> }
+                {/* { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> } */}
                 { filmstripOnly || <Chat /> }
 
                 { this.renderNotificationsContainer() }

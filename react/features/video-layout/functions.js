@@ -73,6 +73,7 @@ export function getTileViewGridDimensions(state: Object, maxColumns: number = ge
  * @returns {boolean} True if tile view should be displayed.
  */
 export function shouldDisplayTileView(state: Object = {}) {
+    return true;
     const participantCount = getParticipantCount(state);
 
     // In case of a lonely meeting, we don't allow tile view.

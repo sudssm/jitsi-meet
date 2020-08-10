@@ -289,7 +289,7 @@ function _mapStateToProps(state, ownProps) {
     return {
         _configuredDisplayName: participant && participant.name,
         _nameToDisplay: getParticipantDisplayName(
-            state, participantID)
+            state, participantID).replace("**upbeat_state**", "")
     };
 }
 

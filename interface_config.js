@@ -272,6 +272,25 @@ var interfaceConfig = {
      PHONE_NUMBER_REGEX
     */
 
+    DEFAULT_BACKGROUND: "black",
+    DEFAULT_LOCAL_DISPLAY_NAME: "",
+    DEFAULT_REMOTE_DISPLAY_NAME: "",
+    DISABLE_VIDEO_BACKGROUND: true,
+    DISABLE_FOCUS_INDICATOR: true,
+    DISABLE_DOMINANT_SPEAKER_INDICATOR: true,
+    DISABLE_RINGING: true,
+    CONNECTION_INDICATOR_DISABLED: true,
+    VIDEO_QUALITY_LABEL_DISABLED: true,
+    DISABLE_PRESENCE_STATUS: true,
+    DISABLE_JOIN_LEAVE_NOTIFICATIONS: true,
+    SHOW_CHROME_EXTENSION_BANNER: true,
+    SHOW_JITSI_WATERMARK: false,
+    DEFAULT_LOGO_URL: "",
+    TOOLBAR_BUTTONS: [],
+    LANG_DETECTION: false,
+    VIDEO_LAYOUT_FIT: "both",
+
+
     // Allow all above example options to include a trailing comma and
     // prevent fear when commenting out the last value.
     // eslint-disable-next-line sort-keys

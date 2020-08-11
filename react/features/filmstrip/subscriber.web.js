@@ -9,6 +9,23 @@ import { getDisplayName } from "../base/settings/functions.web";
 import { setHorizontalViewDimensions, setTileViewDimensions } from './actions.web';
 
 /**
+ * Listens for changes in update_state message to mute or unmute remote audio
+ */
+
+ StateListenerRegistry.register(
+     /* selector */ (state) => getDisplayName(state).startsWith("**upbeat_state**"),
+     /* listener */ (shouldMute, store) => {
+        const audios = document.getElementsByTagName("audio");
+        for (let i = 0; i < audios.length; i++) {
+            if (audios[i].id.startsWith("remoteAudio")) {
+                audios[i].muted = shouldMute;
+            }
+        }
+     }
+ );
+
+
+/**
  * Listens for changes in the number of participants to calculate the dimensions of the tile view grid and the tiles.
  */
 StateListenerRegistry.register(

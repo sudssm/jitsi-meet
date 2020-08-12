@@ -171,6 +171,7 @@ class DisplayName extends Component<Props, State> {
         return (
             <span
                 className = 'displayname'
+                style={{fontWeight: 'bold', fontSize: '16px'}}
                 id = { elementID }
                 onClick = { this._onStartEditing }>
                 { appendSuffix(_nameToDisplay, displayNameSuffix) }

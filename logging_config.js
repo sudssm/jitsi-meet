@@ -3,15 +3,15 @@
 // Logging configuration
 var loggingConfig = {
     // default log level for the app and lib-jitsi-meet
-    defaultLogLevel: 'trace',
+    defaultLogLevel: 'log',
 
     // Option to disable LogCollector (which stores the logs on CallStats)
     // disableLogCollector: true,
 
     // The following are too verbose in their logging with the
     // {@link #defaultLogLevel}:
-    'modules/RTC/TraceablePeerConnection.js': 'info',
-    'modules/statistics/CallStats.js': 'info',
+    'modules/RTC/TraceablePeerConnection.js': 'log',
+    'modules/statistics/CallStats.js': 'log',
     'modules/xmpp/strophe.util.js': 'log'
 };
 

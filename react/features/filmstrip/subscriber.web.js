@@ -13,14 +13,17 @@ import { setHorizontalViewDimensions, setTileViewDimensions } from './actions.we
  */
 
  StateListenerRegistry.register(
-     /* selector */ (state) => getDisplayName(state).startsWith("**upbeat_state**"),
-     /* listener */ (shouldMute, store) => {
-        const audios = document.getElementsByTagName("audio");
-        for (let i = 0; i < audios.length; i++) {
-            if (audios[i].id.startsWith("remoteAudio")) {
-                audios[i].muted = shouldMute;
-            }
-        }
+     /* selector */ (state) => [
+         getDisplayName(state).startsWith("**upbeat_state**"),
+         state["features/base/participants"].length,
+     ],
+     /* listener */ ([shouldMute, numberOfParticipants], store) => {
+         const audios = document.getElementsByTagName("audio");
+         for (let i = 0; i < audios.length; i++) {
+             if (audios[i].id.startsWith("remoteAudio")) {
+                 audios[i].muted = shouldMute;
+             }
+         }
      }
  );
 
